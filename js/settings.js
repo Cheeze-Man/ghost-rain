@@ -8,5 +8,4 @@ const HERO_WIDTH = 35;
 const HERO_HEIGHT = 54;
 
 ////
-const heroElement = document.getElementById("hero");
-console.log(heroElement);
+const bg = document.getElementById("bg");

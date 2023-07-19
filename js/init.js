@@ -1,14 +1,45 @@
-document.addEventListener("keydown", function (e) {
-  const heroLeft = heroElement.style.left;
-  // console.log("용사의 왼쪽 값 =>", heroLeft);
+let player = new Hero();
 
-  const heroLeftWithoutPx = parseInt(heroLeft.split("px")[0]);
+function init() {
+  document.addEventListener(
+    "keydown",
+    function (e) {
+      checkKey(e, true);
+    },
+    false
+  );
 
-  if (e.keyCode === 37) {
-    heroElement.style.left = heroLeftWithoutPx - 10 + "px";
-    // console.log(heroLeftWithoutPx - 1);
-  } else if (e.keyCode === 39) {
-    heroElement.style.left = heroLeftWithoutPx + 10 + "px";
-    // console.log(heroLeftWithoutPx + 1);
+  document.addEventListener(
+    "keyup",
+    function (e) {
+      checkKey(e, false);
+    },
+    false
+  );
+
+  setInterval(function () {
+    let ghost = new Ghost();
+    ghost.create();
+  }, 2000);
+}
+
+function checkKey(e, isMoving) {
+  if (isMoving) {
+    const keyID = e.keyCode || e.which;
+
+    switch (keyID) {
+      case 39: //right
+        player.move("right");
+        e.preventDefault();
+        break;
+      case 37: //left
+        player.move("left");
+        e.preventDefault();
+        break;
+    }
+  } else {
+    player.stop();
   }
-});
+}
+
+init();
