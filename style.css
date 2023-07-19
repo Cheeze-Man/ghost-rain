@@ -77,7 +77,7 @@ body {
 #hero {
   position: absolute;
   bottom: 0;
-  left: 48%;
+  /* left: 48%; */
 
   width: 35px;
   height: 54px;
