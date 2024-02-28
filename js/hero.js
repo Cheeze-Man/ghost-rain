@@ -16,9 +16,6 @@ class Hero {
   }
 
   setLeft(speed) {
-    // const currentLeft = Number(
-    //   getComputedStyle(heroElement).left.split("px")[0]
-    // );
     const newleft = this.left + speed;
 
     if (newleft > BG_WIDTH - HERO_WIDTH || newleft < 0) return;
